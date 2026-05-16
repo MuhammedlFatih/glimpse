@@ -1,0 +1,205 @@
+/* ── Tooltip ── */
+#glimpse-tooltip {
+  position: absolute;
+  z-index: 99999;
+  background: #ffffff;
+  border: 0.5px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 12px;
+  color: #3B6D11;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  user-select: none;
+  white-space: nowrap;
+}
+#glimpse-tooltip:hover { background: #EAF3DE; }
+#glimpse-tooltip .glimpse-dot {
+  width: 6px; height: 6px;
+  background: #639922;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── Panel ── */
+#glimpse-panel {
+  position: fixed;
+  top: 80px; right: 20px;
+  width: 290px;
+  z-index: 99999;
+  background: #ffffff;
+  border: 0.5px solid #e0e0e0;
+  border-radius: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+/* ── Header ── */
+.glimpse-header {
+  padding: 11px 14px;
+  border-bottom: 0.5px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.glimpse-brand { display: flex; align-items: center; gap: 7px; }
+.glimpse-logo {
+  width: 20px; height: 20px;
+  background: #EAF3DE;
+  border-radius: 5px;
+  display: flex; align-items: center; justify-content: center;
+}
+.glimpse-logo svg { width: 12px; height: 12px; }
+.glimpse-brand-name { font-size: 13px; font-weight: 500; color: #27500A; }
+.glimpse-close {
+  width: 22px; height: 22px;
+  background: #f5f5f5; border: none;
+  border-radius: 50%; cursor: pointer;
+  font-size: 11px; color: #888;
+  display: flex; align-items: center; justify-content: center;
+}
+.glimpse-close:hover { background: #e8e8e8; }
+
+/* ── Kelime ── */
+.glimpse-word-section {
+  padding: 12px 14px;
+  border-bottom: 0.5px solid #f0f0f0;
+}
+.glimpse-word { font-size: 17px; font-weight: 500; color: #1a1a1a; margin: 0 0 5px; }
+.glimpse-word-type {
+  font-size: 11px; color: #3B6D11; font-weight: 500;
+  background: #EAF3DE; padding: 2px 8px;
+  border-radius: 10px; display: inline-block;
+}
+
+/* ── Sözlük tanımı ── */
+.glimpse-dict {
+  padding: 12px 14px;
+  border-bottom: 0.5px solid #f0f0f0;
+}
+.glimpse-dict p {
+  font-size: 12px; color: #333;
+  line-height: 1.65; margin: 0;
+}
+
+/* ── Wikipedia özeti ── */
+.glimpse-wiki {
+  padding: 12px 14px;
+  border-bottom: 0.5px solid #f0f0f0;
+  background: #fafafa;
+  display: none;
+}
+.glimpse-wiki-label {
+  font-size: 10px; font-weight: 500;
+  color: #888; text-transform: uppercase;
+  letter-spacing: 0.05em; margin-bottom: 6px;
+}
+.glimpse-wiki p {
+  font-size: 12px; color: #555;
+  line-height: 1.65; margin: 0;
+}
+
+/* ── Yükleniyor ── */
+.glimpse-loading {
+  padding: 18px 14px;
+  text-align: center;
+  font-size: 12px; color: #888;
+}
+.glimpse-spinner {
+  width: 18px; height: 18px;
+  border: 2px solid #e0e0e0;
+  border-top-color: #639922;
+  border-radius: 50%;
+  animation: glimpse-spin 0.7s linear infinite;
+  margin: 0 auto 8px;
+}
+@keyframes glimpse-spin { to { transform: rotate(360deg); } }
+
+/* ── Butonlar ── */
+.glimpse-actions {
+  padding: 10px 14px;
+  display: flex; gap: 8px;
+  border-bottom: 0.5px solid #f0f0f0;
+}
+.glimpse-btn-save {
+  flex: 1; background: #639922; color: #fff;
+  border: none; border-radius: 7px;
+  padding: 7px 0; font-size: 12px; font-weight: 500;
+  cursor: pointer; display: flex;
+  align-items: center; justify-content: center; gap: 5px;
+}
+.glimpse-btn-save:hover { background: #3B6D11; }
+.glimpse-btn-save:disabled { background: #C0DD97; cursor: not-allowed; }
+.glimpse-btn-wiki {
+  flex: 1; background: #f5f5f5; color: #444;
+  border: none; border-radius: 7px;
+  padding: 7px 0; font-size: 12px; font-weight: 500;
+  cursor: pointer; display: flex;
+  align-items: center; justify-content: center; gap: 5px;
+  text-decoration: none;
+}
+.glimpse-btn-wiki:hover { background: #ebebeb; }
+
+/* ── Notlar ── */
+.glimpse-notes { padding: 10px 14px; background: #fafafa; }
+.glimpse-notes-label {
+  font-size: 11px; color: #888; font-weight: 500;
+  margin-bottom: 8px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.glimpse-note-count {
+  background: #EAF3DE; color: #3B6D11;
+  font-size: 10px; padding: 1px 7px;
+  border-radius: 10px; font-weight: 500;
+}
+.glimpse-note-item {
+  background: #fff; border: 0.5px solid #e8e8e8;
+  border-radius: 7px; padding: 7px 9px; margin-bottom: 6px;
+}
+.glimpse-note-item:hover { border-color: #C0DD97; }
+.glimpse-note-word { font-size: 12px; font-weight: 500; color: #1a1a1a; margin: 0 0 2px; }
+.glimpse-note-preview {
+  font-size: 11px; color: #888; margin: 0;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.glimpse-empty-notes { font-size: 12px; color: #bbb; text-align: center; padding: 8px 0; }
+
+/* ── Freemium ── */
+.glimpse-free-bar {
+  padding: 8px 14px; background: #fff;
+  border-top: 0.5px solid #f0f0f0;
+  display: flex; align-items: center; gap: 8px;
+}
+.glimpse-free-track {
+  flex: 1; height: 4px;
+  background: #f0f0f0; border-radius: 2px; overflow: hidden;
+}
+.glimpse-free-fill {
+  height: 100%; background: #639922;
+  border-radius: 2px; transition: width 0.3s ease;
+}
+.glimpse-free-text { font-size: 10px; color: #888; white-space: nowrap; }
+.glimpse-upgrade-btn {
+  font-size: 10px; color: #3B6D11; font-weight: 500;
+  background: #EAF3DE; border: none;
+  border-radius: 5px; padding: 3px 8px; cursor: pointer;
+}
+.glimpse-upgrade-btn:hover { background: #C0DD97; }
+
+.glimpse-note-delete {
+  float: right;
+  background: none;
+  border: none;
+  font-size: 10px;
+  color: #ccc;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+.glimpse-note-delete:hover { color: #E24B4A; }
